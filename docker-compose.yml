@@ -1,16 +1,10 @@
-#
-# Run a single daemon instance for downloading updates via cron
-# Updates are persisted to mounted volumes
-#
-# To scan, use 'docker run' e.g.
-# docker run --rm -v $PWD/maldetect:/usr/local/maldetect -v $PWD/clamav:/var/lib/clamav -v /tmp:/data --entrypoint=/usr/local/bin/duoscan.sh 26c31db7918b /data
-#
 version: '2'
 
 services:
 
   docker-av:
-    build: ./
+    #build: ./
+    image: cheewai/docker-antivirus
     container_name: docker-av
     # uncomment and set the email address to receive email alerts when viruses are detected
     #command:
