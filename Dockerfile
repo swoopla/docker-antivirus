@@ -1,5 +1,7 @@
 FROM debian:jessie-slim
-MAINTAINER Dietrich Rordorf <dr@ediqo.com>
+LABEL maintainer "Cheewai Lai <cheewai.lai@gmail.com>"
+
+ARG GOSU_VERSION=1.11
 
 USER root
 
@@ -15,6 +17,9 @@ RUN apt-get update && \
     cd /usr/local/bin && chmod +x *.sh && sync && \
     /usr/local/install_maldet.sh && \
     /usr/local/install_antivirus.sh && \
+    curl -o gosu -kfsSL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64" && \
+    mv gosu /usr/bin/gosu && \
+    chmod +x /usr/bin/gosu && \
     apt-get -y remove curl apt-utils && \
     rm -rf /var/cache/* && \
     # Enable SafeBrowsing, https://www.clamav.net/documents/safebrowsing \

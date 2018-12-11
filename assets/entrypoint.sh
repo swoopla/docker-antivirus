@@ -1,5 +1,10 @@
 #!/bin/bash
 
+[ -n "${CLAMAV_GID:-}" ] && groupmod -g $CLAMAV_GID clamav
+[ -n "${CLAMAV_UID:-}" ] && usermod -u $CLAMAV_UID clamav
+
+chown -R clamav:clamav /var/lib/clamav/*
+
 printf "Restoring Maldet folder ...\n"
 rsync -aru /usr/local/maldetect.ORIG/ /usr/local/maldetect/
 
