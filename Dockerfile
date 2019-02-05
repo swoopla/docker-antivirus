@@ -1,5 +1,4 @@
 FROM debian:jessie-slim
-MAINTAINER Dietrich Rordorf <dr@ediqo.com>
 
 USER root
 
