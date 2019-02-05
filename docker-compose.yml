@@ -3,15 +3,17 @@ version: '2'
 services:
 
   docker-av:
-    image: rordi/docker-antivirus
     container_name: docker-av
-    # uncomment and set the email address to receive email alerts when viruses are detected
-    #command:
-    # - /usr/local/install_alerts.sh email@example.net
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
     volumes:
       - ./data/queue:/data/av/queue
       - ./data/ok:/data/av/ok
       - ./data/nok:/data/av/nok
+    
     networks:
       - avnetwork
 
