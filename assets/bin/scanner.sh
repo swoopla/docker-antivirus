@@ -12,8 +12,8 @@ while true; do
             then
                 printf "  --> File ok\n"
                 mv -f "/data/av/scan/${filename}" "/data/av/ok/${filename}"
+                mv -f "/data/av/scan/info" "/data/av/ok/${filename}.log"
                 printf "  --> File moved to /data/av/ok/${filename}\n"
-                rm /data/av/scan/info
             elif [ -e "/data/av/quarantine/${filename}" ]
             then
                 printf "  --> File quarantined / nok\n"
