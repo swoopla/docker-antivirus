@@ -1,4 +1,4 @@
-# chrishoffman/docker-antivirus
+# docker-antivirus
 
 ## Antivirus & Antimalware as a Microservice / as a Docker Container
 
