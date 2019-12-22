@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-MAINTAINER Narayan Newton <nnewton@tag1consulting.com>
+LABEL MAINTAINER="Swoopla <p.vibet@gmail.com>"
 
 USER root
 
@@ -16,13 +16,12 @@ RUN apt-get update && \
     /usr/local/install_maldet.sh && \
     /usr/local/install_antivirus.sh && \
     apt-get -y remove curl apt-utils && \
-    rm -rf /var/cache/* && \
-    freshclam && \
+    rm -rf /var/cache/*
+
+RUN freshclam && \
     maldet -u -d
 
 # export volumes (uncomment if you do not mount these volumes at runtime or via docker-compose)
-# VOLUME /data/av/queue
-# VOLUME /data/av/ok
-# VOLUME /data/av/nok
+VOLUME [/data/av/queue, /data/av/ok, /data/av/nok]
 
 ENTRYPOINT ["/usr/local/entrypoint.sh"]
