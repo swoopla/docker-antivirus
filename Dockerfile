@@ -13,6 +13,7 @@ RUN apt-get update && \
     mkdir -p /var/log/cron && \
     cd /usr/local/ && chmod +x *.sh && sync && \
     cd /usr/local/bin && chmod +x *.sh && sync && \
+    sed -i -e 's/^SafeBrowsing.*/SafeBrowsing yes/' /etc/clamav/freshclam.conf && \
     /usr/local/install_maldet.sh && \
     /usr/local/install_antivirus.sh && \
     apt-get -y remove curl apt-utils && \

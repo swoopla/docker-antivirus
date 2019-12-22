@@ -12,6 +12,11 @@ services:
       - ./data/queue:/data/av/queue
       - ./data/ok:/data/av/ok
       - ./data/nok:/data/av/nok
+      - ./clamav:/var/lib/clamav
+      - ./maldetect:/usr/local/maldetect
+    #command:
+    # - /usr/local/install_alerts.sh email@example.net
+    # - /usr/local/bin/duoscan.sh /path/to/scan
     
     networks:
       - avnetwork

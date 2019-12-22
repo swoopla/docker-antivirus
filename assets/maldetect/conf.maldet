@@ -85,7 +85,7 @@ scan_min_filesize="24"
 # will be dynamically set based on the largest known filesize from the MD5
 # hash signature file.
 # [ changing this may have an impact on scan performance ]
-scan_max_filesize="20M"
+scan_max_filesize="100M"
 
 # The maximum byte depth that the scanner will search into a files content.
 # The default signature rules expect a depth size of at least 65536 bytes.
@@ -115,7 +115,7 @@ scan_clamscan="1"
 
 # Include the scanning of known temporary world-writable paths for
 # -a|--al and -r|--recent scan types.
-scan_tmpdir_paths="/data/av/scan"
+#scan_tmpdir_paths="/data/av/scan"
 
 # Allows non-root users to perform scans. This must be enabled when
 # using mod_security2 upload scanning or if you want to allow users
@@ -177,7 +177,7 @@ scan_export_filelist="0"
 ##
 # The default quarantine action for malware hits
 # [0 = alert only, 1 = move to quarantine & alert]
-quarantine_hits="1"
+quarantine_hits="0"
 
 # Try to clean string based malware injections
 # [NOTE: quarantine_hits=1 required]

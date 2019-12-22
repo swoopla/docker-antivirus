@@ -1,6 +1,4 @@
-# docker-antivirus
-
-## Antivirus & Antimalware as a Microservice / as a Docker Container
+# Antivirus & Antimalware in a Docker Container
 
 This is a fork of [rordi/docker-antivirus](https://hub.docker.com/r/rordi/docker-antivirus/) Docker image running [Linux Malware Detect (LMD)](https://github.com/rfxn/linux-malware-detect) with [ClamAV](https://github.com/vrtadmin/clamav-devel) as the scanner.
 
@@ -36,3 +34,4 @@ docker-compose up
 ### Notes
 - **The image may only be built once per hour on the same IP address due to download limitations of the ClamAV signatures**
 - a running container instance consumes around 10 MB memory when idle
+
